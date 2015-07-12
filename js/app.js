@@ -1,7 +1,10 @@
-angular.module('myApp', []).controller('RankCtrl', function($scope, $http) {
-	$scope.users = []
-	var mainInfo = $http.get('students.json').success(function(response) {
-        $scope.users = response["users"]
+/* global angular:true */
+var app = angular.module('myApp', []);
+
+app.controller('RankCtrl', function($scope, $http) {
+	$scope.users = [];
+	$http.get('students.json').success(function(response) {
+        $scope.users = response.users;
     });
     $scope.names = [
         {name:'Jani',country:'Norway'},
