@@ -3,12 +3,17 @@ var app = angular.module('myApp', []);
 
 app.controller('RankCtrl', function($scope, $http) {
 	$scope.users = [];
-	$http.get('students.json').success(function(response) {
+	$scope.cities = {"Nice" : "NCE", "Montpellier": "MPL"}
+	$scope.citySelect = "Nice"
+	openCityJson($scope.citySelect, $http, $scope)
+    $scope.$watch('citySelect',function(){
+     	openCityJson($scope.citySelect, $http, $scope)
+    });
+});
+
+function openCityJson($city, $http, $scope) {
+	$filename = 'JSON/students_' + $scope.cities[$city] + '.json'
+	$http.get($filename).success(function(response) {
         $scope.users = response.users;
     });
-    $scope.names = [
-        {name:'Jani',country:'Norway'},
-        {name:'Hege',country:'Sweden'},
-        {name:'Kai',country:'Denmark'}
-    ];
-});
+}
