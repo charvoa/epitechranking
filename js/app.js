@@ -3,7 +3,7 @@ var app = angular.module('myApp', []);
 
 app.controller('RankCtrl', function($scope, $http) {
 	$scope.users = [];
-	$scope.cities = {"Nice" : "NCE", "Montpellier": "MPL"}
+	$scope.cities = {"Nice" : "NCE", "Montpellier": "MPL", "Marseille": "MAR"}
 	$scope.citySelect = "Nice"
 	openCityJson($scope.citySelect, $http, $scope)
     $scope.$watch('citySelect',function(){
