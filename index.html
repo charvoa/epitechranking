@@ -74,7 +74,7 @@
           class="{{user.gpa >= 2.5 ? 'success' : (user.gpa >= 1.7 ? 'info' : (user.gpa >= 1 ? 'warning' : 'danger'))}}">
         <td>{{user.login}}</td>
         <td>{{user.promo}}</td>
-        <td>{{user.city}}</td>
+        <td>{{(user.login ==  "charvo_a") ? 'Nice / Assistant Piscine' : user.city}}</td>
         <td>{{user.gpa}}</td>
         <td> {{$index + 1}} </td>
       </tr>
